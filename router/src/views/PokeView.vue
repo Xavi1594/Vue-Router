@@ -1,19 +1,15 @@
 <script setup>
-
 import {useGetData} from '@/composables/getData';
 import { useRoute, useRouter } from 'vue-router'
 import { useFavoritosStore } from '../store/favoritos';
-
 const route = useRoute()
 const router = useRouter()
 const useFavoritos = useFavoritosStore()
 const {add, findPoke} = useFavoritos
-
 const {getData, data, loading, errorData} = useGetData();
 const back = () => {
     router.push('/pokemon')
 }
-
 getData(`https://pokeapi.co/api/v2/pokemon/${route.params.name}`)
 </script>
 
